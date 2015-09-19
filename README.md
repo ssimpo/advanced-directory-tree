@@ -92,14 +92,37 @@ And you can also add some options:
 ```javascript
 var dirTree = require('directory-tree');
 var treeOptions = {
-                'hideFiles': true, // show only directories in tree
-                'hideEmptyDirectories': false, // display empty folders
-                'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
-                'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
-            };
-            var filteredTree = dirTree.directoryTree('/some/path', treeOptions);
+	'hideFiles': true, // show only directories in tree
+	'hideEmptyDirectories': false, // display empty folders
+	'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
+	'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
+	};
+var filteredTree = dirTree.directoryTree('/some/path', treeOptions);
 ```
 
+##Asychronous Usage
+
+If you need to map a large directory structure without blocking then there is an asynchronous version of **directoryTree()**, called **directoryTreeAsync()**.
+
+The method returns a promise (bluebird style) or a callback can be supplied.
+
+```javascript
+var dirTree = require('directory-tree');
+dirTree.directoryTree('/some/path').then(function(tree){
+  // Do something with tree.
+});
+```
+
+Or node style:
+
+```javascript
+var dirTree = require('directory-tree');
+dirTree.directoryTree('/some/path', function(err, tree){
+  if(!err){
+    // Do something with tree.
+  }
+});
+```
 
 ## Dev
 
