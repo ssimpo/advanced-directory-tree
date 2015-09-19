@@ -96,7 +96,7 @@ var treeOptions = {
 	'hideEmptyDirectories': false, // display empty folders
 	'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
 	'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
-	};
+};
 var filteredTree = dirTree.directoryTree('/some/path', treeOptions);
 ```
 
@@ -121,6 +121,23 @@ dirTree.directoryTreeAsync('/some/path', function(err, tree){
   if(!err){
     // Do something with tree.
   }
+});
+```
+
+Or node style with options:
+
+```javascript
+var dirTree = require('directory-tree');
+var treeOptions = {
+	'hideFiles': true, // show only directories in tree
+	'hideEmptyDirectories': false, // display empty folders
+	'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
+	'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
+};
+dirTree.directoryTree('/some/path', treeOptions, function(err, tree){
+	if(!err){
+		// Do something with tree.
+	}
 });
 ```
 

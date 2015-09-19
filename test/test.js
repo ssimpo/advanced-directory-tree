@@ -229,4 +229,24 @@ describe('directoryTreeAsync', function () {
     });
   });
 
+  describe('Should provide node style callback in addtion to promise', function () {
+    it('should return an Object', function (done) {
+      dirtree.directoryTreeAsync('./test/test_data', {}, function(err, tree){
+        if(!err){
+          expect(tree).to.be.an('object');
+          done();
+        }
+      });
+    });
+
+    it('should return an Object when callback is second parametre and no options', function (done) {
+      dirtree.directoryTreeAsync('./test/test_data', function(err, tree){
+        if(!err){
+          expect(tree).to.be.an('object');
+          done();
+        }
+      });
+    });
+  });
+
 });
