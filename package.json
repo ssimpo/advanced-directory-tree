@@ -14,6 +14,10 @@
   "author": {
     "name": "Mihnea Dobrescu-Balaur"
   },
+  "contributors": [{
+    "name": "Stephen Simpson",
+    "email": "me@simpo.org"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
