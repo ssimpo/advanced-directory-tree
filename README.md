@@ -108,7 +108,7 @@ The method returns a promise (bluebird style) or a callback can be supplied.
 
 ```javascript
 var dirTree = require('directory-tree');
-dirTree.directoryTree('/some/path').then(function(tree){
+dirTree.directoryTreeAsync('/some/path').then(function(tree){
   // Do something with tree.
 });
 ```
@@ -117,7 +117,7 @@ Or node style:
 
 ```javascript
 var dirTree = require('directory-tree');
-dirTree.directoryTree('/some/path', function(err, tree){
+dirTree.directoryTreeAsync('/some/path', function(err, tree){
   if(!err){
     // Do something with tree.
   }
