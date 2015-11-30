@@ -69,7 +69,7 @@ describe('directoryTree', function () {
 
 		it('should ignore files', function () {
 			var tree = dirtree.directoryTree('./test/test_data/some_dir_2', {
-				'ignoreList': ['.DS_Store', '.gitkeep']
+				'ignoreList': ['*/.DS_Store', '*/.gitkeep']
 			});
 			expect(tree.children.length).to.equal(0);
 		});
@@ -83,7 +83,7 @@ describe('directoryTree', function () {
 
 		it('should ignore files and directories', function () {
 			var tree = dirtree.directoryTree('./test/test_data', {
-				'ignoreList': ['test/test_data/some_dir_2', 'file_a.txt']
+				'ignoreList': ['test/test_data/some_dir_2', '*/file_a.txt']
 			});
 			expect(tree.children.length).to.equal(2);
 		});
@@ -143,7 +143,7 @@ describe('directoryTreeAsync', function () {
 	});
 
 	it('should display the size of a directory (summing up the children)', function (done) {
-		dirtree.directoryTreeAsync('./test/test_data', ['.DS_Store', '.gitkeep']).then(function (tree) {
+		dirtree.directoryTreeAsync('./test/test_data', ['*/.DS_Store', '*/.gitkeep']).then(function (tree) {
 			expect(tree.size).to.equal(11424);
 			done();
 		});
@@ -180,7 +180,7 @@ describe('directoryTreeAsync', function () {
 
 		it('should ignore files', function (done) {
 			dirtree.directoryTreeAsync('./test/test_data/some_dir_2', {
-				'ignoreList': ['.DS_Store', '.gitkeep']
+				'ignoreList': ['*/.DS_Store', '*/.gitkeep']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(0);
 				done();
@@ -198,7 +198,7 @@ describe('directoryTreeAsync', function () {
 
 		it('should ignore files and directories', function (done) {
 			var tree = dirtree.directoryTreeAsync('./test/test_data', {
-				'ignoreList': ['test/test_data/some_dir_2', 'file_a.txt']
+				'ignoreList': ['test/test_data/some_dir_2', '*/file_a.txt']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(2);
 				done();
