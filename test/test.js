@@ -135,8 +135,7 @@ describe('directoryTreeAsync', function () {
 			});
 		});
 
-		it('should hide files in a d' +
-			'irectory listing', function (done) {
+		it('should hide files in a directory listing', function (done) {
 			dirtree.directoryTreeAsync('./test/test_data', {
 				'hideFiles': true
 			}).then(function (tree) {
