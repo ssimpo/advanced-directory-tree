@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var dirtree = require('../lib/directory-tree');
+var dirtree = require('../lib/');
 var fs = require('fs');
 
 describe('directoryTree', function () {
