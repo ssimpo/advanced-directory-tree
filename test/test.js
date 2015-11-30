@@ -93,7 +93,7 @@ describe('directoryTree', function () {
 
 		it('should get only files with certain extensions', function () {
 			var tree = dirtree.directoryTree('./test/test_data/some_dir', {
-				'fileExtensions': ['.png']
+				'fileExtensions': ['*.png']
 			});
 			expect(tree.children.length).to.equal(2);
 		});
@@ -210,7 +210,7 @@ describe('directoryTreeAsync', function () {
 
 		it('should get only files with certain extensions', function (done) {
 			dirtree.directoryTreeAsync('./test/test_data/some_dir', {
-				'fileExtensions': ['.png']
+				'fileExtensions': ['*.png']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(2);
 				done();
