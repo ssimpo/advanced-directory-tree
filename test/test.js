@@ -69,31 +69,32 @@ describe('directoryTree', function () {
 
 		it('should ignore files', function () {
 			var tree = dirtree.directoryTree('./test/test_data/some_dir_2', {
-				'ignoreList': ['*/.DS_Store', '*/.gitkeep']
+				'ignoreList': ['.DS_Store', '.gitkeep']
 			});
 			expect(tree.children.length).to.equal(0);
 		});
 
 		it('should ignore directories', function () {
 			var tree = dirtree.directoryTree('./test/test_data', {
-				'ignoreList': ['test/test_data/some_dir_2']
+				'ignoreList': ['some_dir_2/']
 			});
 			expect(tree.children.length).to.equal(3);
 		});
 
 		it('should ignore files and directories', function () {
 			var tree = dirtree.directoryTree('./test/test_data', {
-				'ignoreList': ['test/test_data/some_dir_2', '*/file_a.txt']
+				'ignoreList': ['some_dir_2/', '*.txt']
 			});
+			console.log(tree.children.length);
 			expect(tree.children.length).to.equal(2);
 		});
 	});
 
-	describe('Tests for fileExtensions', function () {
+	describe('Tests for includeOnly', function () {
 
 		it('should get only files with certain extensions', function () {
 			var tree = dirtree.directoryTree('./test/test_data/some_dir', {
-				'fileExtensions': ['*.png']
+				'includeOnly': ['*.png']
 			});
 			expect(tree.children.length).to.equal(2);
 		});
@@ -180,7 +181,7 @@ describe('directoryTreeAsync', function () {
 
 		it('should ignore files', function (done) {
 			dirtree.directoryTreeAsync('./test/test_data/some_dir_2', {
-				'ignoreList': ['*/.DS_Store', '*/.gitkeep']
+				'ignoreList': ['.DS_Store', '.gitkeep']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(0);
 				done();
@@ -189,7 +190,7 @@ describe('directoryTreeAsync', function () {
 
 		it('should ignore directories', function (done) {
 			dirtree.directoryTreeAsync('./test/test_data', {
-				'ignoreList': ['test/test_data/some_dir_2']
+				'ignoreList': ['some_dir_2/']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(3);
 				done();
@@ -198,7 +199,7 @@ describe('directoryTreeAsync', function () {
 
 		it('should ignore files and directories', function (done) {
 			var tree = dirtree.directoryTreeAsync('./test/test_data', {
-				'ignoreList': ['test/test_data/some_dir_2', '*/file_a.txt']
+				'ignoreList': ['some_dir_2/', '*.txt']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(2);
 				done();
@@ -206,11 +207,11 @@ describe('directoryTreeAsync', function () {
 		});
 	});
 
-	describe('Tests for fileExtensions', function (done) {
+	describe('Tests for includeOnly', function (done) {
 
 		it('should get only files with certain extensions', function (done) {
 			dirtree.directoryTreeAsync('./test/test_data/some_dir', {
-				'fileExtensions': ['*.png']
+				'includeOnly': ['*.png']
 			}).then(function (tree) {
 				expect(tree.children.length).to.equal(2);
 				done();

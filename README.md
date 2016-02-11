@@ -95,7 +95,7 @@ var treeOptions = {
 	'hideFiles': true, // show only directories in tree
 	'hideEmptyDirectories': false, // display empty folders
 	'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
-	'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
+	'includeOnly': ['.jpg', '.png'] // show only certain includeOnly
 };
 var filteredTree = dirTree.directoryTree('/some/path', treeOptions);
 ```
@@ -132,7 +132,7 @@ var treeOptions = {
 	'hideFiles': true, // show only directories in tree
 	'hideEmptyDirectories': false, // display empty folders
 	'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
-	'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
+	'includeOnly': ['.jpg', '.png'] // show only certain includeOnly
 };
 dirTree.directoryTree('/some/path', treeOptions, function(err, tree){
 	if(!err){
